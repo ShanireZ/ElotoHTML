@@ -25,7 +25,7 @@ int main()
     cout << "Print the num of players : ";
     cin >> MX;
     string id;
-    cout << "Print the id of contest : ";
+    cout << "Print the name of contest : ";
     cin >> id;
     // name, score
     // csv文件需要按照上述顺序提供数据
