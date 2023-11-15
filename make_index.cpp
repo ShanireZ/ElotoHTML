@@ -82,8 +82,6 @@ int main()
         int pos = 0, last = 0;
         // 当前排位读取
         find_pos(s, pos);
-        ss << s.substr(last, pos - last);
-        ss >> ns[i].rank;
         ss.clear(), last = ++pos;
         // 当前积分读取
         find_pos(s, pos);
@@ -114,9 +112,14 @@ int main()
         ss.clear(), last = ++pos;
         // 学员姓名读取
         ns[i].name = s.substr(last);
+
         if (ns[i].rating == ns[i - 1].rating && i > 1)
         {
             ns[i].rank = ns[i - 1].rank;
+        }
+        else
+        {
+            ns[i].rank = i;
         }
     }
     // 输出网页头部
