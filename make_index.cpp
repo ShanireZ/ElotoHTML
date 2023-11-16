@@ -10,7 +10,7 @@ struct Node
     int rating, m_rating, c_contests, l_change, rank;
 };
 Node ns[100005];
-int score[20] = {3000, 2500, 2000, 1700, 1400, 1200, 1000, -9999};
+int score[20] = {2500, 2100, 1800, 1600, 1400, 1200, 1000, -9999};
 string sname[20] = {"王者", "大师", "钻石", "铂金", "黄金", "白银", "青铜", "黑铁"};
 string GBK_2_UTF8(string gbkStr)
 {
