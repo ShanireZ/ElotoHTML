@@ -17,32 +17,32 @@
 
         <tr align="center">
             <td> <span class="王者">王</span><span class="大师">者</span> </td>
-            <td>3000</td>
+            <td>2500</td>
             <td></td>
         </tr>
 
         <tr align="center">
             <td class="大师">大师</td>
-            <td>2500</td>
-            <td>2999</td>
-        </tr>
-
-        <tr align="center">
-            <td class="钻石">钻石</td>
-            <td>2000</td>
+            <td>2100</td>
             <td>2499</td>
         </tr>
 
         <tr align="center">
+            <td class="钻石">钻石</td>
+            <td>1800</td>
+            <td>2099</td>
+        </tr>
+
+        <tr align="center">
             <td class="铂金">铂金</td>
-            <td>1700</td>
-            <td>1999</td>
+            <td>1600</td>
+            <td>1799</td>
         </tr>
 
         <tr align="center">
             <td class="黄金">黄金</td>
             <td>1400</td>
-            <td>1699</td>
+            <td>1599</td>
         </tr>
 
         <tr align="center">
