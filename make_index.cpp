@@ -10,39 +10,43 @@ struct Node
     int rating, m_rating, c_contests, l_change, rank;
 };
 Node ns[100005];
-int score[20] = {2500, 2100, 1800, 1600, 1400, 1200, 1000, -9999};
+int score[20] = {2300, 2000, 1800, 1600, 1400, 1200, 1000, -9999};
 string sname[20] = {"王者", "大师", "钻石", "铂金", "黄金", "白银", "青铜", "黑铁"};
-string GBK_2_UTF8(string gbkStr)
+// string GBK_2_UTF8(string gbkStr)
+// {
+//     string outUtf8 = "";
+//     int n = MultiByteToWideChar(CP_ACP, 0, gbkStr.c_str(), -1, NULL, 0);
+//     WCHAR *str1 = new WCHAR[n];
+//     MultiByteToWideChar(CP_ACP, 0, gbkStr.c_str(), -1, str1, n);
+//     n = WideCharToMultiByte(CP_UTF8, 0, str1, -1, NULL, 0, NULL, NULL);
+//     char *str2 = new char[n];
+//     WideCharToMultiByte(CP_UTF8, 0, str1, -1, str2, n, NULL, NULL);
+//     outUtf8 = str2;
+//     delete[] str1;
+//     str1 = NULL;
+//     delete[] str2;
+//     str2 = NULL;
+//     return outUtf8;
+// }
+// string UTF8_2_GBK(string utf8Str)
+// {
+//     string outGBK = "";
+//     int n = MultiByteToWideChar(CP_UTF8, 0, utf8Str.c_str(), -1, NULL, 0);
+//     WCHAR *str1 = new WCHAR[n];
+//     MultiByteToWideChar(CP_UTF8, 0, utf8Str.c_str(), -1, str1, n);
+//     n = WideCharToMultiByte(CP_ACP, 0, str1, -1, NULL, 0, NULL, NULL);
+//     char *str2 = new char[n];
+//     WideCharToMultiByte(CP_ACP, 0, str1, -1, str2, n, NULL, NULL);
+//     outGBK = str2;
+//     delete[] str1;
+//     str1 = NULL;
+//     delete[] str2;
+//     str2 = NULL;
+//     return outGBK;
+// }
+string GBK_2_UTF8(string s) // 测试版本保留当前函数调用(现版本已原生,不用转换编码至UTF)
 {
-    string outUtf8 = "";
-    int n = MultiByteToWideChar(CP_ACP, 0, gbkStr.c_str(), -1, NULL, 0);
-    WCHAR *str1 = new WCHAR[n];
-    MultiByteToWideChar(CP_ACP, 0, gbkStr.c_str(), -1, str1, n);
-    n = WideCharToMultiByte(CP_UTF8, 0, str1, -1, NULL, 0, NULL, NULL);
-    char *str2 = new char[n];
-    WideCharToMultiByte(CP_UTF8, 0, str1, -1, str2, n, NULL, NULL);
-    outUtf8 = str2;
-    delete[] str1;
-    str1 = NULL;
-    delete[] str2;
-    str2 = NULL;
-    return outUtf8;
-}
-string UTF8_2_GBK(string utf8Str)
-{
-    string outGBK = "";
-    int n = MultiByteToWideChar(CP_UTF8, 0, utf8Str.c_str(), -1, NULL, 0);
-    WCHAR *str1 = new WCHAR[n];
-    MultiByteToWideChar(CP_UTF8, 0, utf8Str.c_str(), -1, str1, n);
-    n = WideCharToMultiByte(CP_ACP, 0, str1, -1, NULL, 0, NULL, NULL);
-    char *str2 = new char[n];
-    WideCharToMultiByte(CP_ACP, 0, str1, -1, str2, n, NULL, NULL);
-    outGBK = str2;
-    delete[] str1;
-    str1 = NULL;
-    delete[] str2;
-    str2 = NULL;
-    return outGBK;
+    return s;
 }
 void find_pos(string str, int &pos)
 {
@@ -53,7 +57,7 @@ void find_pos(string str, int &pos)
 }
 void print_cls(string str, string cls)
 {
-    if (cls == GBK_2_UTF8("王者"))
+    if (cls == "王者")
     {
         cout << "\t\t\t<td>";
         cout << " <span class=\"" << GBK_2_UTF8("王者") << "\">" << str.substr(0, 3) << "</span>";
