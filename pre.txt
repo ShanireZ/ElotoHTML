@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>贝塔编程 OI积分排位榜</title>
+    <title>贝塔编程世界大师排位赛</title>
     <style>
         .黑铁 {
             color: #808080;
@@ -57,11 +57,47 @@
 
 <body>
     <p align="center" style="font-size: 40px;font-weight: bold;">
-        贝塔编程 OI积分排位榜
+        贝塔编程世界大师排位赛 S1赛季大神榜
     </p>
 
     <table border="1" width="60%" align="center">
+        <tr align="center">
+            <td>排位</td>
+            <td>姓名</td>
+            <td>段位</td>
+            <td>积分</td>
+        </tr>
+        <tr align="center">
+            <td>冠军</td>
+            <td><span class="王者">连</span><span class="大师">君朴</span></td>
+            <td><span class="王者">王</span><span class="大师">者</span></td>
+            <td>2319</td>
+        </tr>
+        <tr align="center">
+            <td>亚军</td>
+            <td class="大师">刘彧辰</td>
+            <td class="大师">大师</td>
+            <td>2244</td>
+        </tr>
+        <tr align="center">
+            <td>季军</td>
+            <td class="大师">周子涵</td>
+            <td class="大师">大师</td>
+            <td>2144</td>
+        </tr>
+        <tr align="center">
+            <td>季军</td>
+            <td class="大师">黄泓竣</td>
+            <td class="大师">大师</td>
+            <td>2144</td>
+        </tr>
+   </table>
 
+    <p align="center" style="font-size: 40px;font-weight: bold;">
+        贝塔编程世界大师排位赛 S2赛季积分榜
+    </p>
+
+    <table border="1" width="60%" align="center">
         <tr align="center">
             <td>排位</td>
             <td>姓名</td>
