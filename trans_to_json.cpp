@@ -22,11 +22,14 @@ Node ns[100005];
 int main()
 {
     int MX = 0, utime = time(0);
+    double wgt = 0;
     cout << "Print the num of players : ";
     cin >> MX;
     string id;
-    cout << "Print the name of contest : ";
+    cout << "Print the ID of contest : ";
     cin >> id;
+    cout << "Print the weight of contest : ";
+    cin >> wgt;
     // name, score
     // csv文件需要按照上述顺序提供数据
     freopen("result.csv", "r", stdin);
@@ -80,6 +83,7 @@ int main()
     cout << "{\n";
     cout << "\t\"name\": \"" << id << "\",\n";
     cout << "\t\"time_seconds\": " << utime << ",\n";
+    cout << "\t\"weight\": " << wgt << ",\n";
     cout << "\t\"standings\": [\n";
     for (int i = 1; i <= MX; i++)
     {
