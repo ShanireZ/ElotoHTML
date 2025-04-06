@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <iostream>
-#include <sstream>
 #include <string>
 #include <windows.h>
 using namespace std;
@@ -12,42 +11,6 @@ struct Node
 Node ns[100005];
 int score[20] = {2300, 2000, 1800, 1600, 1400, 1200, 1000, -9999};
 string sname[20] = {"王者", "大师", "钻石", "铂金", "黄金", "白银", "青铜", "黑铁"};
-// string GBK_2_UTF8(string gbkStr)
-// {
-//     string outUtf8 = "";
-//     int n = MultiByteToWideChar(CP_ACP, 0, gbkStr.c_str(), -1, NULL, 0);
-//     WCHAR *str1 = new WCHAR[n];
-//     MultiByteToWideChar(CP_ACP, 0, gbkStr.c_str(), -1, str1, n);
-//     n = WideCharToMultiByte(CP_UTF8, 0, str1, -1, NULL, 0, NULL, NULL);
-//     char *str2 = new char[n];
-//     WideCharToMultiByte(CP_UTF8, 0, str1, -1, str2, n, NULL, NULL);
-//     outUtf8 = str2;
-//     delete[] str1;
-//     str1 = NULL;
-//     delete[] str2;
-//     str2 = NULL;
-//     return outUtf8;
-// }
-// string UTF8_2_GBK(string utf8Str)
-// {
-//     string outGBK = "";
-//     int n = MultiByteToWideChar(CP_UTF8, 0, utf8Str.c_str(), -1, NULL, 0);
-//     WCHAR *str1 = new WCHAR[n];
-//     MultiByteToWideChar(CP_UTF8, 0, utf8Str.c_str(), -1, str1, n);
-//     n = WideCharToMultiByte(CP_ACP, 0, str1, -1, NULL, 0, NULL, NULL);
-//     char *str2 = new char[n];
-//     WideCharToMultiByte(CP_ACP, 0, str1, -1, str2, n, NULL, NULL);
-//     outGBK = str2;
-//     delete[] str1;
-//     str1 = NULL;
-//     delete[] str2;
-//     str2 = NULL;
-//     return outGBK;
-// }
-string GBK_2_UTF8(string s) // 测试版本保留当前函数调用(现版本已原生,不用转换编码至UTF)
-{
-    return s;
-}
 void find_pos(string str, int &pos)
 {
     while (str[pos] != ',') // 当前积分读取
@@ -60,8 +23,8 @@ void print_cls(string str, string cls)
     if (cls == "王者")
     {
         cout << "\t\t\t<td>";
-        cout << " <span class=\"" << GBK_2_UTF8("王者") << "\">" << str.substr(0, 3) << "</span>";
-        cout << "<span class=\"" << GBK_2_UTF8("大师") << "\">" << str.substr(3) << "</span>";
+        cout << " <span class=\"王者\">" << str.substr(0, 3) << "</span>";
+        cout << "<span class=\"大师\">" << str.substr(3) << "</span>";
         cout << " </td>\n";
     }
     else
@@ -77,7 +40,6 @@ int main()
     freopen("index.html", "w", stdout);
     // 直接提供算法生成的all_players.csv原文件即可,无需调整
     freopen("all_players.csv", "r", stdin);
-    stringstream ss;
     string s;
     cin >> s; // 跳过csv表头
     for (int i = 1; i <= MX; i++)
@@ -86,34 +48,30 @@ int main()
         int pos = 0, last = 0;
         // 当前排位读取
         find_pos(s, pos);
-        ss.clear(), last = ++pos;
+        last = ++pos;
         // 当前积分读取
         find_pos(s, pos);
-        ss << s.substr(last, pos - last);
-        ss >> ns[i].rating;
-        ss.clear(), last = ++pos;
+        ns[i].rating = stoi(s.substr(last, pos - last));
+        last = ++pos;
         // 最高积分读取
         find_pos(s, pos);
-        ss << s.substr(last, pos - last);
-        ss >> ns[i].m_rating;
-        ss.clear(), last = ++pos;
+        ns[i].m_rating = stoi(s.substr(last, pos - last));
+        last = ++pos;
         // 跳过
         find_pos(s, pos), last = ++pos;
         find_pos(s, pos), last = ++pos;
         // 参赛数量读取
         find_pos(s, pos);
-        ss << s.substr(last, pos - last);
-        ss >> ns[i].c_contests;
-        ss.clear(), last = ++pos;
+        ns[i].c_contests = stoi(s.substr(last, pos - last));
+        last = ++pos;
         // 跳过
         find_pos(s, pos), last = ++pos;
         find_pos(s, pos), last = ++pos;
         find_pos(s, pos), last = ++pos;
         // 积分变动读取
         find_pos(s, pos);
-        ss << s.substr(last, pos - last);
-        ss >> ns[i].l_change;
-        ss.clear(), last = ++pos;
+        ns[i].l_change = stoi(s.substr(last, pos - last));
+        last = ++pos;
         // 学员姓名读取
         ns[i].name = s.substr(last);
 
@@ -135,16 +93,16 @@ int main()
     // 输出学员信息
     for (int i = 1; i <= MX; i++)
     {
-        string cls, m_cls, lc = GBK_2_UTF8(ns[i].l_change >= 0 ? "上分" : "掉分");
+        string cls, m_cls, lc = (ns[i].l_change >= 0 ? "上分" : "掉分");
         for (int j = 0; j < 8; j++)
         {
             if (m_cls.empty() && ns[i].m_rating >= score[j])
             {
-                m_cls = GBK_2_UTF8(sname[j]);
+                m_cls = sname[j];
             }
             if (ns[i].rating >= score[j])
             {
-                cls = GBK_2_UTF8(sname[j]);
+                cls = sname[j];
                 break;
             }
         }
